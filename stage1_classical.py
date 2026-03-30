@@ -12,6 +12,7 @@
 # ══════════════════════════════════════════════════════════════
 
 import logging
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -138,6 +139,9 @@ def run_logistic_regression(
         },
         metrics  = metrics,
     )
+
+    with open("models/logreg_model.pkl", "wb") as f:
+        pickle.dump({"model": model, "vectorizer": vec}, f)
     return metrics
 
 
@@ -216,4 +220,6 @@ def run_xgboost(
         },
         metrics  = metrics,
     )
+    with open("models/xgboost_model.pkl", "wb") as f:
+        pickle.dump({"model": model, "vectorizer": vec}, f)
     return metrics

@@ -9,7 +9,7 @@
 #  View MLflow results:
 #    mlflow ui    →  http://localhost:5000
 # ══════════════════════════════════════════════════════════════
-
+from pathlib import Path
 import json
 import logging
 import warnings
@@ -21,6 +21,8 @@ import config
 from preprocess          import load_and_preprocess
 from stage1_classical    import run_logistic_regression, run_xgboost
 from stage2_transformers import run_zero_shot, run_distilbert
+
+Path(config.OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
 warnings.filterwarnings("ignore")
 logging.basicConfig(

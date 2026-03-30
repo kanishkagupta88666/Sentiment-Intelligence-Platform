@@ -7,9 +7,9 @@
 import torch
 
 # ── Dataset ───────────────────────────────────────────────────
-DATA_PATH  = "amazon_product_reviews.csv"   # path to the Kaggle CSV
-TEXT_COL   = "review_text"                  # free-text review column
-RATING_COL = "rating"                       # 1-5 star rating column
+DATA_PATH  = "/Users/shithilshetty/Documents/Projects/sentiment analysis/Product Reviews.csv"   # path to the Kaggle CSV
+TEXT_COL   = "Text"                  # free-text review column
+RATING_COL = "Score"                       # 1-5 star rating column
 
 # ── Sampling ──────────────────────────────────────────────────
 # Set to None to train on the full 500k+ dataset.

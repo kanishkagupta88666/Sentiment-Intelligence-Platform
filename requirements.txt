@@ -1,7 +1,8 @@
 pandas
 scikit-learn
-xgboost
+xgboost==1.7.6
 transformers
 torch
 mlflow
 pyarrow
+accelerate>=1.1.0
