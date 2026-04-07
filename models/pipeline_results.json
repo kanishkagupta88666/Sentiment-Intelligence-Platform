@@ -1,0 +1,6 @@
+{
+  "Fine-tuned distilBERT": {
+    "accuracy": 0.8112,
+    "macro_f1": 0.8116078952240234
+  }
+}

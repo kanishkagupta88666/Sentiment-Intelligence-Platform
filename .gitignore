@@ -57,8 +57,9 @@ db.sqlite3
 *.csv
 *.parquet
 
-# Trained models
-models/
+# Large trained transformer weights (too big for GitHub)
+models/distilbert/
+checkpoints/ATEPC_MULTILINGUAL_CHECKPOINT/
 
 # MLflow
 mlruns/

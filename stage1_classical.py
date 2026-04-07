@@ -195,7 +195,7 @@ def run_xgboost(
         eval_metric      = "mlogloss",
         tree_method      = "hist",    # switch to "gpu_hist" if GPU available
         random_state     = config.RANDOM_SEED,
-        n_jobs           = -1,
+        n_jobs           = 1,
         verbosity        = 0,
     )
     model.fit(

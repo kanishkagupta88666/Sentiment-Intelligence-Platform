@@ -9,11 +9,15 @@
 #  View MLflow results:
 #    mlflow ui    →  http://localhost:5000
 # ══════════════════════════════════════════════════════════════
+import os
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
 from pathlib import Path
 import json
 import logging
 import warnings
-from pathlib import Path
 
 import mlflow
 

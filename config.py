@@ -4,10 +4,12 @@
 #  Edit values here — nothing else needs to change.
 # ══════════════════════════════════════════════════════════════
 
+from pathlib import Path
 import torch
 
 # ── Dataset ───────────────────────────────────────────────────
-DATA_PATH  = "/Users/shithilshetty/Documents/Projects/sentiment analysis/Product Reviews.csv"   # path to the Kaggle CSV
+DATA_PATH  = str(Path(__file__).resolve().parent / "Product Reviews.csv")   # relative to project root
+
 TEXT_COL   = "Text"                  # free-text review column
 RATING_COL = "Score"                       # 1-5 star rating column
 
@@ -42,6 +44,16 @@ FP16         = torch.cuda.is_available()   # auto-enable on GPU
 OUTPUT_DIR   = "models"
 MLFLOW_URI   = "mlruns"
 MLFLOW_EXP   = "sentiment-pipeline"
+
+# ── ABSA (Stage 3) ───────────────────────────────────────────
+ABSA_SAMPLE_SIZE = 1000                # start small, scale later
+ABSA_GENERIC_ASPECTS = {               # noise words to filter out
+    "product", "thing", "item", "this", "it", "that", "one",
+    "something", "everything", "anything", "stuff", "lot",
+    "way", "time", "day", "place", "part", "kind", "sort",
+}
+ABSA_MIN_ASPECT_LEN = 2               # ignore single-char aspects
+ABSA_MIN_CONFIDENCE = 0.0             # set > 0 to filter low-conf
 
 # ── Label definitions (do not change order) ──────────────────
 LABEL_NAMES = ["negative", "neutral", "positive"]   # indices 0 / 1 / 2
