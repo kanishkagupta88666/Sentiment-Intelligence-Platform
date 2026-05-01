@@ -10,11 +10,9 @@ import plotly.express as px
 from sklearn.preprocessing import normalize
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langchain_core.tools import Tool
-from langchain_classic.agents import AgentExecutor
-from langgraph.prebuilt import create_react_agent
+from langchain.tools import Tool
+from langchain.agents import AgentExecutor, create_react_agent
 from langchain import hub
-
 load_dotenv()
 st.set_page_config(
     page_title="Sentiment Intelligence Platform",
