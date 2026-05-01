@@ -10,7 +10,7 @@ import plotly.express as px
 from sklearn.preprocessing import normalize
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langchain.tools import Tool
+from langchain_core.tools import Tool
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain import hub
 
