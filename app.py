@@ -15,6 +15,12 @@ from langchain.agents import AgentExecutor, create_react_agent
 from langchain import hub
 
 load_dotenv()
+st.set_page_config(
+    page_title="Sentiment Intelligence Platform",
+    page_icon="🔍",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 # ── Password Protection ───────────────────────────────────────────────────────
 def check_password():
     if "authenticated" not in st.session_state:
@@ -39,13 +45,6 @@ def check_password():
         st.stop()
 
 check_password()
-
-st.set_page_config(
-    page_title="Sentiment Intelligence Platform",
-    page_icon="🔍",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 st.markdown("""
 <style>
@@ -704,6 +703,8 @@ elif page == "📖  About":
 
     st.markdown("---")
     st.markdown("### 👥 Team")
+    t1, t2, t3, t4 = st.columns(4)
+
     t1, t2, t3, t4 = st.columns(4)
 
     team = [
