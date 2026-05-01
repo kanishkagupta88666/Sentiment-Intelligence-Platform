@@ -11,4 +11,3 @@ langchain-community
 langchain-core
 python-dotenv
 sentence-transformers
-EOF
