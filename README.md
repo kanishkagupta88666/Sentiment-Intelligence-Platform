@@ -112,24 +112,32 @@ A product rated 3★ might have **exceptional taste but terrible packaging**. A 
 ```
 Sentiment-Intelligence-Platform/
 │
-├── app.py                          # Streamlit dashboard (all 5 pages)
+├── app.py                          # Streamlit dashboard (main entry point)
 ├── requirements.txt                # Python dependencies
 ├── .python-version                 # Python 3.11 (for Streamlit Cloud)
+├── README.md
 │
-├── models/
-│   ├── absa/
-│   │   ├── product_aspect_vectors.csv   # 691 × 13 sentiment vectors
-│   │   ├── aspect_taxonomy_map.json     # raw aspect → taxonomy mapping
-│   │   └── product_names.csv            # ProductId → display name
-│   └── stage4/
-│       └── chroma_db/                   # ChromaDB review embeddings
+├── notebooks/
+│   ├── stage3_normalization.ipynb  # ABSA + KMeans taxonomy normalization
+│   ├── stage4_recommendation.ipynb # FAISS + ChromaDB pipeline
+│   └── stage5_agentic_llm.ipynb   # LangChain ReAct agent
 │
-├── stage1_classical.py             # VADER, TF-IDF, LogReg, XGBoost
-├── stage2_transformers.py          # RoBERTa zero-shot + DistilBERT fine-tuning
-├── stage3_normalization.ipynb      # ABSA + KMeans taxonomy normalization
-├── stage4_recommendation.ipynb     # FAISS + ChromaDB pipeline
-└── stage5_agentic_llm.ipynb        # LangChain ReAct agent
-```
+├── src/
+│   ├── stage1_classical.py         # VADER, TF-IDF, LogReg, XGBoost
+│   ├── stage2_transformers.py      # RoBERTa zero-shot + DistilBERT fine-tuning
+│   ├── stage3_absa.py              # ABSA extraction pipeline
+│   ├── preprocess.py               # Data loading and cleaning
+│   ├── config.py                   # All settings and hyperparameters
+│   ├── main.py                     # Pipeline entry point
+│   └── utils.py                    # Shared helpers
+│
+└── models/
+    ├── absa/
+    │   ├── product_aspect_vectors.csv   # 691 × 13 sentiment vectors
+    │   ├── aspect_taxonomy_map.json     # raw aspect → taxonomy mapping
+    │   └── product_names.csv            # ProductId → display name
+    └── stage4/
+        └── chroma_db/                   # ChromaDB review embeddings
 ---
 
 ## ⚙️ Local Setup
