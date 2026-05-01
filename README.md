@@ -1,7 +1,7 @@
 # 🔍 Sentiment Intelligence Platform
 ### Beyond Star Ratings — Aspect-Level Product Intelligence
 
-> An end-to-end NLP pipeline that transforms raw Amazon product reviews into structured, actionable product intelligence — powered by aspect-based sentiment analysis, FAISS similarity search, and a LangChain ReAct agent.
+> An end-to-end NLP pipeline that transforms raw Amazon product reviews into structured, actionable product intelligence powered by aspect-based sentiment analysis, FAISS similarity search, and a LangChain ReAct agent.
 
 🌐 **Live Demo**: [sentiment-intelligence-platform-textmining.streamlit.app](https://sentiment-intelligence-platform-textmining.streamlit.app)  
 📦 **Dataset**: [Amazon Product Reviews — Kaggle](https://www.kaggle.com/datasets/manasabollavarapu/amazon-product-reviews/data)
@@ -12,7 +12,7 @@
 
 A product rated 3★ might have **exceptional taste but terrible packaging**. A 1★ review might be entirely about a delayed shipment, not the product itself. A single star rating collapses all of this nuance into one useless number.
 
-**This platform solves that.** We extract what customers are actually talking about — taste, price, packaging, nutrition — and score each dimension separately. Every product becomes a **13-dimensional sentiment vector** that powers smarter search, gap-fill recommendations, and AI-generated explanations grounded in real reviews.
+**This platform solves that.** We extract what customers are actually talking about taste, price, packaging, nutrition — and score each dimension separately. Every product becomes a **13-dimensional sentiment vector** that powers smarter search, gap-fill recommendations, and AI-generated explanations grounded in real reviews.
 
 ---
 
@@ -29,22 +29,23 @@ A product rated 3★ might have **exceptional taste but terrible packaging**. A 
 ---
 
 ## 🧠 Pipeline Architecture
+```
 500,000+ Amazon Reviews
-│
-▼
+        │
+        ▼
 ┌─────────────────────────────────┐
 │  Stage 1 — Classical Baselines  │
 │  VADER · TF-IDF · LogReg · XGB  │
 └─────────────────────────────────┘
-│
-▼
+        │
+        ▼
 ┌─────────────────────────────────┐
 │  Stage 2 — Transformer Models   │
 │  Zero-shot RoBERTa              │
 │  Fine-tuned DistilBERT          │
 └─────────────────────────────────┘
-│
-▼
+        │
+        ▼
 ┌─────────────────────────────────┐
 │  Stage 3 — ABSA Pipeline        │
 │  spaCy noun chunks              │
@@ -52,16 +53,16 @@ A product rated 3★ might have **exceptional taste but terrible packaging**. A 
 │  76K aspects → 717 → 13 labels  │
 │  Per-product 13-dim vectors     │
 └─────────────────────────────────┘
-│
-▼
+        │
+        ▼
 ┌─────────────────────────────────┐
 │  Stage 4 — Recommendation       │
 │  FAISS IndexFlatIP              │
 │  Gap-fill recommender           │
 │  ChromaDB (4,963 embeddings)    │
 └─────────────────────────────────┘
-│
-▼
+        │
+        ▼
 ┌─────────────────────────────────┐
 │  Stage 5 — Agentic LLM Layer    │
 │  LangChain ReAct Agent          │
@@ -69,6 +70,7 @@ A product rated 3★ might have **exceptional taste but terrible packaging**. A 
 │  5 custom tools                 │
 │  Grounded explanations          │
 └─────────────────────────────────┘
+```
 
 ---
 
@@ -107,6 +109,7 @@ A product rated 3★ might have **exceptional taste but terrible packaging**. A 
 ---
 
 ## 📁 Project Structure
+```
 Sentiment-Intelligence-Platform/
 │
 ├── app.py                          # Streamlit dashboard (all 5 pages)
@@ -126,7 +129,7 @@ Sentiment-Intelligence-Platform/
 ├── stage3_normalization.ipynb      # ABSA + KMeans taxonomy normalization
 ├── stage4_recommendation.ipynb     # FAISS + ChromaDB pipeline
 └── stage5_agentic_llm.ipynb        # LangChain ReAct agent
-
+```
 ---
 
 ## ⚙️ Local Setup
